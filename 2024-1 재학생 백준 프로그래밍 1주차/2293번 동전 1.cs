@@ -10,14 +10,13 @@ public class Program
         using var read = new System.IO.StreamReader(Console.OpenStandardInput());
         using var print = new System.IO.StreamWriter(Console.OpenStandardOutput());
         #endregion
-        
-        string input = read.ReadLine(); // 입력
-        int[] inputNum = Array.ConvertAll(input.Split(), int.Parse);
-        int count = inputNum[0];    // 인덱스 0은 숫자 갯수
-        int total = inputNum[1];    // 인덱스 1은 숫자합
+
+        string[] input = read.ReadLine().Split();   // 입력
+        int count = Convert.ToInt32(input[0]);    // 인덱스 0은 숫자 갯수
+        int total = Convert.ToInt32(input[1]);    // 인덱스 1은 숫자합
 
         int[] num = new int[count];
-        for (int i = 0; i < count; i++) 
+        for (int i = 0; i < count; i++) // 입력
         {
             num[i] = Convert.ToInt32(read.ReadLine());
         }
@@ -29,21 +28,18 @@ public class Program
             if ((i + 1) % num[0] == 0)
                 dp[i]++;
         }
-        
+
         for (int i = 1; i < count; i++)
         {
             bool find = false;
-            for (int j = 0; j < total; j++)
+            for (int j = num[i] - 1; j < total; j++)
             {
-                if (find == false && (j + 1) == num[i])
+                if (find == false)
                 {
                     find = true;
                     dp[j]++;
                     continue;
                 }
-
-                if (find == false)
-                    continue;
 
                 dp[j] = dp[j] + dp[j - num[i]];
             }
