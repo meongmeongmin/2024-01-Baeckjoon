@@ -1,5 +1,5 @@
 // 코드 리뷰
-// https://mmmin14.tistory.com/manage/posts/
+// https://mmmin14.tistory.com/27
 
 using System;
 using System.Collections.Generic;
