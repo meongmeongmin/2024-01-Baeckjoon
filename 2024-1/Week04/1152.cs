@@ -1,5 +1,5 @@
 // 코드 리뷰
-// https://www.acmicpc.net/problem/1152
+// https://mmmin14.tistory.com/22
 
 using System;
 using System.Collections;
